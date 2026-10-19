@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b1a">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperaturas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Fondo animado con burbujas -->
+<div class="burbujeo" aria-hidden="true">
+    <span class="burbuja b1"></span>
+    <span class="burbuja b2"></span>
+    <span class="burbuja b3"></span>
+    <span class="burbuja b4"></span>
+    <span class="burbuja b5"></span>
+    <span class="burbuja b6"></span>
+    <span class="burbuja b7"></span>
+    <span class="burbuja b8"></span>
+    <span class="burbuja b9"></span>
+    <span class="burbuja b10"></span>
+    <span class="burbuja b11"></span>
+    <span class="burbuja b12"></span>
+    <span class="burbuja b13"></span>
+    <span class="burbuja b14"></span>
+    <span class="burbuja b15"></span>
+</div>
+
+<!-- Partículas luminosas -->
+<div class="particulas" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+</div>
+
+    <!-- Fondo animado -->
+    <div class="fondo"></div>
+    <div class="luz luz-1"></div>
+    <div class="luz luz-2"></div>
+    <div class="luz luz-3"></div>
+    <div class="rejilla"></div>
+
+    <!-- Navegación -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">🌡️</span>
+            <span>THERMO<span class="gradiente">VERSE</span></span>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#convertidor">Convertidor</a>
+            <a href="#formulas">Fórmulas</a>
+        </nav>
+
+        <a href="#convertidor" class="nav-btn">Comenzar ↗</a>
+    </header>
+
+    <main>
+
+        <!-- Portada -->
+        <section class="hero" id="inicio">
+            <div class="insignia">
+                <span class="punto"></span>
+                LABORATORIO DIGITAL DE TEMPERATURA
+            </div>
+
+            <h1>
+                El poder de<br>
+                <span class="gradiente">convertir la temperatura</span>
+            </h1>
+
+            <p class="hero-text">
+                Cuatro escalas, infinitas posibilidades.
+                Convierte, compara y descubre el mundo de la temperatura
+                con una herramienta interactiva.
+            </p>
+
+            <div class="escala-pills">
+                <span>°C Celsius</span>
+                <span>°K Kelvin</span>
+                <span>°F Fahrenheit</span>
+                <span>°R Rankine</span>
+            </div>
+
+            <a href="#convertidor" class="hero-btn">
+                Explorar convertidor <span>↓</span>
+            </a>
+
+            <div class="hero-decoracion decoracion-izq">°C</div>
+            <div class="hero-decoracion decoracion-der">°K</div>
+        </section>
+
+        <!-- Convertidor -->
+        <section class="panel" id="convertidor">
+
+            <div class="titulo-panel">
+                <div>
+                    <span class="mini-titulo">CONVERSIÓN INSTANTÁNEA</span>
+                    <h2>Centro de conversión</h2>
+                    <p>Introduce tu temperatura y deja que la ciencia haga el resto.</p>
+                </div>
+
+                <div class="icono-panel">⚗️</div>
+            </div>
+
+            <form id="formulario" class="formulario">
+                <div class="campo">
+                    <label for="temperatura">Temperatura que deseas convertir</label>
+                    <div class="entrada-wrap">
+                        <input
+                            type="number"
+                            id="temperatura"
+                            placeholder="Escribe un valor, por ejemplo 25"
+                            step="any"
+                            required
+                        >
+                        <span class="simbolo">°</span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="unidad">Selecciona la escala de origen</label>
+                    <select id="unidad">
+                        <option value="C">Celsius (°C)</option>
+                        <option value="K">Kelvin (°K)</option>
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="R">Rankine (°R)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="convertir-btn">
+                    <span class="btn-icon">✦</span>
+                    Convertir temperatura
+                    <span class="btn-flecha">→</span>
+                </button>
+
+                <button type="button" id="limpiar" class="limpiar-btn">
+                    ↺ Limpiar conversión
+                </button>
+
+                <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="linea-titulo">
+                <span>TUS RESULTADOS</span>
+            </div>
+
+            <div class="resultados">
+
+                <article class="resultado celsius">
+                    <div class="tarjeta-top">
+                        <span class="tarjeta-icono">❄️</span>
+                        <span class="tarjeta-codigo">01</span>
+                    </div>
+                    <p class="nombre-escala">Celsius</p>
+                    <h3 id="celsius">—</h3>
+                    <p class="unidad-texto">Grados Celsius · °C</p>
+                    <div class="progreso"><span></span></div>
+                </article>
+
+                <article class="resultado kelvin">
+                    <div class="tarjeta-top">
+                        <span class="tarjeta-icono">⚛️</span>
+                        <span class="tarjeta-codigo">02</span>
+                    </div>
+                    <p class="nombre-escala">Kelvin</p>
+                    <h3 id="kelvin">—</h3>
+                    <p class="unidad-texto">Kelvin · °K</p>
+                    <div class="progreso"><span></span></div>
+                </article>
+
+                <article class="resultado fahrenheit">
+                    <div class="tarjeta-top">
+                        <span class="tarjeta-icono">🔥</span>
+                        <span class="tarjeta-codigo">03</span>
+                    </div>
+                    <p class="nombre-escala">Fahrenheit</p>
+                    <h3 id="fahrenheit">—</h3>
+                    <p class="unidad-texto">Grados Fahrenheit · °F</p>
+                    <div class="progreso"><span></span></div>
+                </article>
+
+                <article class="resultado rankine">
+                    <div class="tarjeta-top">
+                        <span class="tarjeta-icono">🚀</span>
+                        <span class="tarjeta-codigo">04</span>
+                    </div>
+                    <p class="nombre-escala">Rankine</p>
+                    <h3 id="rankine">—</h3>
+                    <p class="unidad-texto">Grados Rankine · °R</p>
+                    <div class="progreso"><span></span></div>
+                </article>
+
+            </div>
+
+            <div class="aviso">
+                <span>ⓘ</span>
+                Los resultados se presentan con un máximo de dos decimales.
+            </div>
+        </section>
+
+        <!-- Información sobre las escalas -->
+        <section class="info-seccion">
+            <div class="titulo-info">
+                <span class="mini-titulo">CONOCE LAS ESCALAS</span>
+                <h2>Cuatro formas de medir el calor</h2>
+                <p>Cada escala tiene su propio punto de referencia y sus aplicaciones.</p>
+            </div>
+
+            <div class="escalas-grid">
+                <article class="escala-card">
+                    <div class="escala-emoji">❄️</div>
+                    <h3>Celsius</h3>
+                    <p>Se utiliza ampliamente en la vida cotidiana y en trabajos científicos.</p>
+                    <span>Agua: 0 °C a 100 °C</span>
+                </article>
+
+                <article class="escala-card">
+                    <div class="escala-emoji">⚛️</div>
+                    <h3>Kelvin</h3>
+                    <p>Es la escala absoluta empleada en ciencias y termodinámica.</p>
+                    <span>Agua: 273.15 °K a 373.15 °K</span>
+                </article>
+
+                <article class="escala-card">
+                    <div class="escala-emoji">🔥</div>
+                    <h3>Fahrenheit</h3>
+                    <p>Se utiliza en la vida cotidiana, especialmente en Estados Unidos.</p>
+                    <span>Agua: 32 °F a 212 °F</span>
+                </article>
+
+                <article class="escala-card">
+                    <div class="escala-emoji">🚀</div>
+                    <h3>Rankine</h3>
+                    <p>Es una escala absoluta que utiliza intervalos del mismo tamaño que Fahrenheit.</p>
+                    <span>Agua: 491.67 °R a 671.67 °R</span>
+                </article>
+            </div>
+        </section>
+
+       
+<!-- Tabla de fórmulas -->
+<section class="panel" id="formulas">
+    <div class="titulo-panel">
+        <div>
+            <span class="mini-titulo">GUÍA MATEMÁTICA</span>
+            <h2>Fórmulas de conversión</h2>
+            <p>Consulta cómo transformar una escala en otra.</p>
+        </div>
+        <div class="icono-panel">∑</div>
+    </div>
+
+    <div class="tabla-wrap">
+        <table class="tabla-formulas">
+            <thead>
+                <tr>
+                    <th>De / A</th>
+                    <th>Celsius</th>
+                    <th>Kelvin</th>
+                    <th>Fahrenheit</th>
+                    <th>Rankine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Celsius</th>
+                    <td data-label="Celsius">°C</td>
+                    <td data-label="Kelvin">°K = °C + 273.15</td>
+                    <td data-label="Fahrenheit">°F = (°C × 1.8) + 32</td>
+                    <td data-label="Rankine">°R = (°C + 273.15) × 1.8</td>
+                </tr>
+                <tr>
+                    <th>Kelvin</th>
+                    <td data-label="Celsius">°C = K − 273.15</td>
+                    <td data-label="Kelvin">°K</td>
+                    <td data-label="Fahrenheit">°F = (K × 1.8) − 459.67</td>
+                    <td data-label="Rankine">°R = K × 1.8</td>
+                </tr>
+                <tr>
+                    <th>Fahrenheit</th>
+                    <td data-label="Celsius">°C = (°F − 32) / 1.8</td>
+                    <td data-label="Kelvin">°K = (°F + 459.67) / 1.8</td>
+                    <td data-label="Fahrenheit">°F</td>
+                    <td data-label="Rankine">°R = °F + 459.67</td>
+                </tr>
+                <tr>
+                    <th>Rankine</th>
+                    <td data-label="Celsius">°C = (°R / 1.8) − 273.15</td>
+                    <td data-label="Kelvin">°K = °R / 1.8</td>
+                    <td data-label="Fahrenheit">°F = °R − 459.67</td>
+                    <td data-label="Rankine">°R</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+        <!-- Cierre -->
+        <section class="cierre">
+            <div class="cierre-icono">🌎</div>
+            <h2>La ciencia en cada grado</h2>
+            <p>
+                Comprender las escalas de temperatura nos permite interpretar
+                mejor los fenómenos que ocurren a nuestro alrededor.
+            </p>
+            <a href="#inicio" class="hero-btn">Volver al inicio ↑</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="#inicio" class="logo logo-footer">
+            🌡️ THERMO<span class="gradiente">VERSE</span>
+        </a>
+        <p>Proyecto · Conversión de unidades de temperatura</p>
+        <p>Divanhi Ximena Vasquez Luna</p>
+    </footer>
+
+    <button id="arriba" class="arriba" aria-label="Volver arriba">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
